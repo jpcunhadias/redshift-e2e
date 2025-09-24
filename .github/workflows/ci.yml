@@ -1,0 +1,99 @@
+name: Redshift E2E Pipeline CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-sql:
+    runs-on: ubuntu-latest
+    name: Validate SQL Syntax
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        pip install sqlfluff dbt-redshift
+    
+    - name: Lint SQL files
+      run: |
+        sqlfluff lint sql/ --dialect redshift
+    
+    - name: Check dbt models
+      run: |
+        cd dbt
+        # Set dummy environment variables for parsing
+        export REDSHIFT_HOST=dummy
+        export REDSHIFT_USER=dummy  
+        export REDSHIFT_PASSWORD=dummy
+        export REDSHIFT_DBNAME=dummy
+        dbt parse
+
+  validate-python:
+    runs-on: ubuntu-latest
+    name: Validate Python Scripts
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+    
+    - name: Lint Python files
+      run: |
+        pip install flake8
+        flake8 scripts/ glue/ --max-line-length=120
+    
+    - name: Test Python imports
+      run: |
+        python -c "import sys; sys.path.append('scripts'); import upload_to_s3, run_sql_scripts"
+
+  validate-terraform:
+    runs-on: ubuntu-latest
+    name: Validate Terraform
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+      with:
+        terraform_version: 1.5.0
+    
+    - name: Terraform Format Check
+      run: |
+        cd terraform
+        terraform fmt -check
+    
+    - name: Terraform Validate
+      run: |
+        cd terraform
+        terraform init
+        terraform validate
+
+  test-makefile:
+    runs-on: ubuntu-latest
+    name: Test Makefile Commands
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Test make help
+      run: make help
+    
+    - name: Test make clean
+      run: make clean

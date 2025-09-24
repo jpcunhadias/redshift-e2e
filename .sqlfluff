@@ -1,0 +1,25 @@
+[sqlfluff]
+dialect = redshift
+templater = dbt
+max_line_length = 120
+
+[sqlfluff:indentation]
+indented_joins = True
+indented_ctes = True
+indented_using_on = True
+
+[sqlfluff:rules:capitalisation.keywords]
+capitalisation_policy = lower
+
+[sqlfluff:rules:capitalisation.identifiers]
+capitalisation_policy = lower
+
+[sqlfluff:rules:capitalisation.functions]
+capitalisation_policy = lower
+
+[sqlfluff:rules:capitalisation.literals]
+capitalisation_policy = lower
+
+[sqlfluff:templater:dbt]
+project_dir = ./dbt/
+profiles_dir = ./dbt/

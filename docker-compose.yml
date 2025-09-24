@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  dbt:
+    image: ghcr.io/dbt-labs/dbt-redshift:1.6.latest
+    volumes:
+      - ./dbt:/usr/app/dbt
+      - ~/.aws:/root/.aws:ro
+    working_dir: /usr/app/dbt
+    environment:
+      - REDSHIFT_HOST=${REDSHIFT_HOST}
+      - REDSHIFT_USER=${REDSHIFT_USER}
+      - REDSHIFT_PASSWORD=${REDSHIFT_PASSWORD}
+      - REDSHIFT_DBNAME=${REDSHIFT_DATABASE}
+    command: ["dbt", "run"]
+    
+  aws-cli:
+    image: amazon/aws-cli:latest
+    volumes:
+      - ./data:/data
+      - ~/.aws:/root/.aws:ro
+    environment:
+      - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION:-us-east-1}
+    command: ["s3", "sync", "/data", "s3://${S3_BUCKET}/data/"]

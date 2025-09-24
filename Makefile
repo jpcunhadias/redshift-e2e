@@ -10,12 +10,12 @@ help: ## Show this help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 # Environment variables
-S3_BUCKET ?= your-s3-bucket
-REDSHIFT_HOST ?= your-redshift-cluster.region.redshift.amazonaws.com
-REDSHIFT_USER ?= your-username
-REDSHIFT_PASSWORD ?= your-password
-REDSHIFT_DATABASE ?= dev
-IAM_ROLE_ARN ?= arn:aws:iam::account:role/RedshiftRole
+S3_BUCKET ?= 
+REDSHIFT_HOST ?= 
+REDSHIFT_USER ?= 
+REDSHIFT_PASSWORD ?= 
+REDSHIFT_DATABASE ?= 
+IAM_ROLE_ARN ?= 
 
 validate-env: ## Validate required environment variables
 	@echo "Validating environment variables..."
