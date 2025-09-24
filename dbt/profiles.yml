@@ -1,0 +1,31 @@
+redshift_e2e:
+  outputs:
+    dev:
+      type: redshift
+      host: "{{ env_var('REDSHIFT_HOST') }}"
+      user: "{{ env_var('REDSHIFT_USER') }}"
+      password: "{{ env_var('REDSHIFT_PASSWORD') }}"
+      port: 5439
+      dbname: "{{ env_var('REDSHIFT_DBNAME', 'dev') }}"
+      schema: analytics
+      threads: 4
+      keepalives_idle: 0
+      connect_timeout: 10
+      search_path: "analytics,staging,raw,public"
+      sslmode: require
+      
+    prod:
+      type: redshift
+      host: "{{ env_var('REDSHIFT_HOST') }}"
+      user: "{{ env_var('REDSHIFT_USER') }}"
+      password: "{{ env_var('REDSHIFT_PASSWORD') }}"
+      port: 5439
+      dbname: "{{ env_var('REDSHIFT_DBNAME', 'prod') }}"
+      schema: analytics
+      threads: 8
+      keepalives_idle: 0
+      connect_timeout: 10
+      search_path: "analytics,staging,raw,public"
+      sslmode: require
+
+  target: dev

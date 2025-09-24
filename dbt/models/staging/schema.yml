@@ -1,0 +1,97 @@
+version: 2
+
+sources:
+  - name: raw
+    description: Raw data loaded from S3
+    tables:
+      - name: customers
+        description: Raw customer data from CSV
+      - name: products
+        description: Raw product data from CSV
+      - name: orders
+        description: Raw order data from CSV
+      - name: order_items
+        description: Raw order items data from JSON
+      - name: suppliers
+        description: Raw supplier data from JSON
+
+models:
+  - name: stg_customers
+    description: Staged customer data with cleaning and validation
+    columns:
+      - name: customer_id
+        description: Unique customer identifier
+        tests:
+          - not_null
+          - unique
+      - name: email
+        description: Customer email address
+        tests:
+          - not_null
+      - name: has_valid_email
+        description: Flag indicating if email is valid
+        tests:
+          - accepted_values:
+              values: [true, false]
+
+  - name: stg_products
+    description: Staged product data with cleaning and validation
+    columns:
+      - name: product_id
+        description: Unique product identifier
+        tests:
+          - not_null
+          - unique
+      - name: price
+        description: Product price
+        tests:
+          - not_null
+      - name: has_valid_price
+        description: Flag indicating if price is valid
+        tests:
+          - accepted_values:
+              values: [true, false]
+
+  - name: stg_orders
+    description: Staged order data with cleaning and validation
+    columns:
+      - name: order_id
+        description: Unique order identifier
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: Customer who placed the order
+        tests:
+          - not_null
+      - name: total_amount
+        description: Total order amount
+        tests:
+          - not_null
+
+  - name: stg_order_items
+    description: Staged order items data with cleaning and validation
+    columns:
+      - name: order_item_id
+        description: Unique order item identifier
+        tests:
+          - not_null
+          - unique
+      - name: line_total_is_correct
+        description: Flag indicating if line total calculation is correct
+        tests:
+          - accepted_values:
+              values: [true, false]
+
+  - name: stg_suppliers
+    description: Staged supplier data with cleaning and validation
+    columns:
+      - name: supplier_id
+        description: Unique supplier identifier
+        tests:
+          - not_null
+          - unique
+      - name: rating
+        description: Supplier rating
+        tests:
+          - not_null

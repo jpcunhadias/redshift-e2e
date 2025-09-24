@@ -1,0 +1,8 @@
+[
+  {"supplier_id": 1, "supplier_name": "TechGear Inc", "contact_person": "Sarah Johnson", "email": "sarah@techgear.com", "phone": "555-1001", "address": {"street": "123 Tech Blvd", "city": "Seattle", "state": "WA", "zip": "98101"}, "rating": 4.8},
+  {"supplier_id": 2, "supplier_name": "SportMax Supply", "contact_person": "Mike Chen", "email": "mike@sportmax.com", "phone": "555-1002", "address": {"street": "456 Sport Ave", "city": "Denver", "state": "CO", "zip": "80201"}, "rating": 4.5},
+  {"supplier_id": 3, "supplier_name": "HomeAppliance Co", "contact_person": "Lisa Wang", "email": "lisa@homeappliance.com", "phone": "555-1003", "address": {"street": "789 Kitchen Way", "city": "Atlanta", "state": "GA", "zip": "30301"}, "rating": 4.6},
+  {"supplier_id": 4, "supplier_name": "ActiveLife Products", "contact_person": "Tom Rodriguez", "email": "tom@activelife.com", "phone": "555-1004", "address": {"street": "321 Fitness St", "city": "Miami", "state": "FL", "zip": "33101"}, "rating": 4.7},
+  {"supplier_id": 5, "supplier_name": "OfficeSpace Solutions", "contact_person": "Emma Davis", "email": "emma@officespace.com", "phone": "555-1005", "address": {"street": "654 Office Park", "city": "Boston", "state": "MA", "zip": "02101"}, "rating": 4.4},
+  {"supplier_id": 6, "supplier_name": "FunTime Games", "contact_person": "Alex Thompson", "email": "alex@funtime.com", "phone": "555-1006", "address": {"street": "987 Play Plaza", "city": "Portland", "state": "OR", "zip": "97201"}, "rating": 4.3}
+]

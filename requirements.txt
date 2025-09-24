@@ -1,0 +1,7 @@
+# Python dependencies for Redshift E2E Pipeline
+boto3>=1.28.0
+psycopg2-binary>=2.9.0
+dbt-redshift>=1.6.0
+sqlfluff>=2.3.0
+pandas>=2.0.0
+awswrangler>=3.4.0

@@ -134,7 +134,7 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
-# Environments
+# Environment files
 .env
 .envrc
 .venv
@@ -154,10 +154,10 @@ venv.bak/
 # mkdocs documentation
 /site
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
+# dbt
+target/
+dbt_packages/
+logs/
 
 # Pyre type checker
 .pyre/

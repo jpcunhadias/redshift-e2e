@@ -1,0 +1,13 @@
+-- Create schemas for the data pipeline
+CREATE SCHEMA IF NOT EXISTS raw;
+CREATE SCHEMA IF NOT EXISTS staging;
+CREATE SCHEMA IF NOT EXISTS analytics;
+
+-- Grant permissions (adjust as needed for your environment)
+GRANT USAGE ON SCHEMA raw TO PUBLIC;
+GRANT USAGE ON SCHEMA staging TO PUBLIC;
+GRANT USAGE ON SCHEMA analytics TO PUBLIC;
+
+GRANT CREATE ON SCHEMA raw TO PUBLIC;
+GRANT CREATE ON SCHEMA staging TO PUBLIC;
+GRANT CREATE ON SCHEMA analytics TO PUBLIC;

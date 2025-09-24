@@ -1,0 +1,19 @@
+[
+  {"order_item_id": 1, "order_id": 1001, "product_id": 101, "quantity": 1, "unit_price": 99.99, "line_total": 99.99},
+  {"order_item_id": 2, "order_id": 1001, "product_id": 108, "quantity": 3, "unit_price": 19.99, "line_total": 59.97},
+  {"order_item_id": 3, "order_id": 1002, "product_id": 102, "quantity": 1, "unit_price": 79.99, "line_total": 79.99},
+  {"order_item_id": 4, "order_id": 1003, "product_id": 103, "quantity": 1, "unit_price": 149.99, "line_total": 149.99},
+  {"order_item_id": 5, "order_id": 1003, "product_id": 106, "quantity": 1, "unit_price": 29.99, "line_total": 29.99},
+  {"order_item_id": 6, "order_id": 1004, "product_id": 107, "quantity": 1, "unit_price": 49.99, "line_total": 49.99},
+  {"order_item_id": 7, "order_id": 1005, "product_id": 105, "quantity": 1, "unit_price": 59.99, "line_total": 59.99},
+  {"order_item_id": 8, "order_id": 1005, "product_id": 106, "quantity": 1, "unit_price": 29.99, "line_total": 29.99},
+  {"order_item_id": 9, "order_id": 1006, "product_id": 106, "quantity": 1, "unit_price": 29.99, "line_total": 29.99},
+  {"order_item_id": 10, "order_id": 1007, "product_id": 105, "quantity": 1, "unit_price": 59.99, "line_total": 59.99},
+  {"order_item_id": 11, "order_id": 1007, "product_id": 109, "quantity": 2, "unit_price": 24.99, "line_total": 49.98},
+  {"order_item_id": 12, "order_id": 1007, "product_id": 108, "quantity": 1, "unit_price": 19.99, "line_total": 19.99},
+  {"order_item_id": 13, "order_id": 1008, "product_id": 103, "quantity": 1, "unit_price": 149.99, "line_total": 149.99},
+  {"order_item_id": 14, "order_id": 1008, "product_id": 107, "quantity": 1, "unit_price": 49.99, "line_total": 49.99},
+  {"order_item_id": 15, "order_id": 1009, "product_id": 109, "quantity": 1, "unit_price": 24.99, "line_total": 24.99},
+  {"order_item_id": 16, "order_id": 1009, "product_id": 106, "quantity": 1, "unit_price": 29.99, "line_total": 29.99},
+  {"order_item_id": 17, "order_id": 1010, "product_id": 110, "quantity": 1, "unit_price": 34.99, "line_total": 34.99}
+]

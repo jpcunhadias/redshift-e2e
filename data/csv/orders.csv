@@ -1,0 +1,11 @@
+order_id,customer_id,order_date,total_amount,status,shipping_address,payment_method
+1001,1,2023-03-01,159.98,completed,123 Main St New York NY 10001,credit_card
+1002,2,2023-03-02,79.99,completed,456 Oak Ave Los Angeles CA 90210,debit_card
+1003,3,2023-03-03,179.98,completed,789 Pine Rd Chicago IL 60601,credit_card
+1004,1,2023-03-04,49.99,pending,123 Main St New York NY 10001,paypal
+1005,4,2023-03-05,89.98,completed,321 Elm St Houston TX 77001,credit_card
+1006,5,2023-03-06,29.99,cancelled,654 Maple Dr Phoenix AZ 85001,credit_card
+1007,2,2023-03-07,124.98,completed,456 Oak Ave Los Angeles CA 90210,debit_card
+1008,6,2023-03-08,199.98,completed,987 Cedar Ln Philadelphia PA 19101,credit_card
+1009,3,2023-03-09,54.98,pending,789 Pine Rd Chicago IL 60601,paypal
+1010,7,2023-03-10,34.99,completed,147 Birch Way San Antonio TX 78201,credit_card
