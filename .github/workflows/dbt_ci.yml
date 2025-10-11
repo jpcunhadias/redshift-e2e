@@ -1,0 +1,36 @@
+name: dbt CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  dbt_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Install dbt
+        run: pip install dbt-redshift
+
+      - name: Install dbt dependencies
+        run: dbt deps
+        working-directory: ./dbt_project
+
+      - name: Run dbt tests
+        env:
+          # Use GitHub secrets to store your credentials securely
+          DBT_HOST: ${{ secrets.DBT_HOST }}
+          DBT_USER: ${{ secrets.DBT_USER }}
+          DBT_PASS: ${{ secrets.DBT_PASS }}
+          # ... and other credentials
+        run: dbt test
+        working-directory: ./dbt_project

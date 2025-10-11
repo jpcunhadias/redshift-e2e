@@ -1,4 +1,5 @@
-{{ config(materialized='table') }}
+{{ config(materialized='incremental', unique_key='order_id') }}
+
 -- explode items JSON into rows using SUPER/JSON functions
 with base as (
   select
@@ -23,6 +24,7 @@ with base as (
 )
 select
   e.order_id,
+  e.order_ts, -- The original timestamp is needed for the incremental logic
   e.order_ts::date as order_date,
   e.customer_id,
   e.product_id,
@@ -30,3 +32,10 @@ select
   e.unit_price,
   e.line_amount
 from exploded e
+
+{% if is_incremental() %}
+
+  -- this filter will only be applied on incremental runs
+  where e.order_ts > (select max(order_ts) from {{ this }})
+
+{% endif %}
