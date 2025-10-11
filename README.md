@@ -4,7 +4,7 @@ This project demonstrates a complete, end-to-end data pipeline using AWS Redshif
 
 ## Architecture
 
-The project follows a robust, three-layer data warehousing architecture (ELT - Extract, Load, Transform):
+The project follows a three-layer data warehousing architecture (ELT - Extract, Load, Transform):
 
 ```
 +-----------+     +----------------+     +------------------------+     +---------------------+     +-------------------+
