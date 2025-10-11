@@ -1,0 +1,13 @@
+name: redshift_e2e
+version: 1.0.0
+profile: redshift_e2e
+
+models:
+  redshift_e2e:
+    +schema: core
+    staging:
+      +schema: stage           # db objects created by models/staging/* go to schema "stage"
+      +materialized: view
+    marts:
+      +schema: marts
+      +materialized: table
