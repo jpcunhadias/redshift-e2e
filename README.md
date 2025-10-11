@@ -81,6 +81,29 @@ You can run the entire pipeline at once or step by step.
         ```bash
         make dbt
         ```
+        *Note: The `fct_sales` model is incremental. To run a full rebuild of this table, use `dbt run --full-refresh --select fct_sales`.*
+
+## Data Testing
+
+This project includes data quality tests to ensure the integrity of the transformed data. You can run all tests using the following command:
+
+```bash
+dbt test
+```
+
+## Project Documentation
+
+You can generate a full documentation website for this dbt project, including a data lineage graph.
+
+1.  **Generate the documentation artifacts:**
+    ```bash
+    dbt docs generate
+    ```
+2.  **Start the local web server:**
+    ```bash
+    dbt docs serve
+    ```
+    Now you can navigate to `http://localhost:8080` in your browser to view the documentation.
 
 ## Project Structure
 
